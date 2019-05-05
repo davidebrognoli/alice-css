@@ -1,4 +1,4 @@
-#ALICE NEL PAESE DEI CSS
+# ALICE NEL PAESE DEI CSS
 
 Alice nel paese dei CSS è un talk che ho preparato in occasione del CP10Y, il primo company meeting di CodicePlastico.
 
