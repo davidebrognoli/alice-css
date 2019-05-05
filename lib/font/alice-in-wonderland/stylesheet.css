@@ -1,0 +1,7 @@
+@font-face {
+    font-family: 'alice-in-wonderland';
+    src: url('alice-in-wonderland.woff2') format('woff2'),
+         url('alice-in-wonderland.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

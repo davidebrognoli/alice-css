@@ -2,56 +2,208 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+  <title>Alice nel paese dei CSS</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/black.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/white.css">
+  <link rel="stylesheet" href="css/theme/alice.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/monokai.css">
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
 
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
+  </script>
 </head>
 
 <body>
-    <div class="reveal">
-        <div class="slides">
-            <section>Slide 1</section>
-            <section>Slide 2</section>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1 class="alice-font">Alice nel paese<br />dei CSS</h1>
+        <img src="lib/images/alice.png" alt="Alice" class="plain alice-img">
+      </section>
+      <section>
+        <h2 class="alice-font">Come mi vedono gli altri dev</h2>
+        <img class="plain" src="lib/images/cappellaio-leprotto.png">
+      </section>
+      <section>
+        <h2 class="alice-font">Come si sentono gli altri dev</h2>
+        <img class="plain small" src="lib/images/alice-specchio.png">
+      </section>
+      <section>
+        <h2 class="alice-font">Difficoltà</h2>
+        <ul>
+          <li class="fragment">Non deterministic resolution</li>
+          <li class="fragment">Isolation</li>
+          <li class="fragment">Global Namespace</li>
+          <li class="fragment">Dependencies</li>
+          <li class="fragment">Dead code elimination</li>
+          <li class="fragment">Sharing constants</li>
+        </ul>
+        <img class="alice-img small plain" src="lib/images/regina-arrabbiata.png">
+      </section>
+      <section>
+        <h2 class="alice-font">Come sopravvivere?</h2>
+        <img class="alice-img alice-img--medium plain" src="lib/images/carte.png">
+        <ul>
+          <li class="fragment">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" target="_blank">CSS Ref</a>
+          </li>
+          <li class="fragment">
+            <a href="http://caniuse.com/" target="_blank">Can I use</a>
+          </li>
+          <li class="fragment">
+            <a href="http://stackoverflow.com/" target="_blank">Stackoverflow</a>
+          </li>
+          <li class="fragment">Inspector del browser</li>
+        </ul>
+      </section>
+      <section>
+        <section>
+          <h2 class="alice-font">Breve ripasso</h2>
+          <img class="plain small" src="lib/images/regina-alice.png">
+        </section>
+        <section>
+          <p>
+            Abbiamo diverse tipologie di selettori </p>
+          <ul>
+            <li class="fragment"><b>universal seletctor</b>: *</li>
+            <li class="fragment"><b>type selector</b>: p</li>
+            <li class="fragment"><b>class selector</b>: .class</li>
+            <li class="fragment"><b>ID selector</b>: #id</li>
+            <li class="fragment"><b>attributes selector</b>: [attr] [attr=value]</li>
+          </ul>
+        </section>
+        <section>
+          <p>
+            Abbiamo la possibilità di combinare i diversi selettori fra di loro</p>
+          <ul>
+            <li class="fragment"><b>descendant seletctor</b>: div a</li>
+            <li class="fragment"><b>child selector</b>: div > a</li>
+            <li class="fragment"><b>adjacent sibling selector</b>: div + a</li>
+            <li class="fragment"><b>general sibling selectors</b>: div ~ a</li>
+          </ul>
+        </section>
+        <section>
+          <p>Esistono poi dei selettori per gli pseudo elements
+            <b class="fragment">::before, ::after</b> e per le pseudo classi <b class="fragment">:checked, :hover,
+              ...</b></p>
+        </section>
+      </section>
+      <section>
+        <h2 class="alice-font">Il tempo è tiranno</h2>
+        <img class="plain small" src="lib/images/alice-bianconiglio.png">
+      </section>
+      <section>
+        <h2 class="alice-font">Spunti per la risoluzione di semplici problemi e qualche magia</h2>
+        <img class="plain small" src="lib/images/pozione.png">
+      </section>
+      <section>
+        <section>
+          <h2 class="alice-font">Implementazione di un layout</h2>
+          <p class="fragment">Come posso posizionare in modo semplice gli elementi all'interno di una pagina web?</p>
+          <pre class="fragment">
+              <code>
+                .container{
+                  display: flex;
+                }
+              </code>
+            </pre>
+        </section>
+        <section>
+          <h2 class="alice-font">Flexbox</h2>
+          <p class="fragment">A cosa serve?</p>
+          <blockquote class="fragment" cite="https://en.wikipedia.org/wiki/CSS_Flexible_Box_Layout">
+            CSS Flexible Box Layout, commonly known as Flexbox, is a CSS3 web layout model. The flex layout allows
+            responsive elements within a container to be automatically arranged depending upon screen size (or device)
+          </blockquote>
+          <a class="fragment code-link" href="https://jsfiddle.net/davidebrognoli/2ckbao7h/" target="_blank">Let's start
+            coding</a>
+        </section>
+      </section>
+      <section>
+        <h2 class="alice-font">Validazione form</h2>
+        <p>E' possibile migliorare la UX di un modulo per la raccolta dati utilizzando solamente HTML e CSS?</p>
+        <a class="code-link" href="https://jsfiddle.net/davidebrognoli/fu189hy5/" target="_blank">Coding</a>
+        <a class="code-link" href="https://jsfiddle.net/davidebrognoli/fu189hy5/50/" target="_blank">Soluzione</a>
+      </section>
+      <section>
+        <section>
+          <h2 class="alice-font">Siblings selector</h2>
+          <p>E' possibile sfruttare i CSS per realizzare un sistema di rating?</p>
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/sybvf1Lc/" target="_blank">Coding</a>
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/sybvf1Lc/3/" target="_blank">Soluzione</a>
+        </section>
+        <section>
+          <p>E una gallery fotografica?</p>
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/Lnc97shk/" target="_blank">Soluzione</a>
+        </section>
+      </section>
+      <section>
+        <h2 class="alice-font">Ancora un po' di magia</h2>
+        <img class="plain small" src="lib/images/stregatto.png">
+      </section>
+      <section>
+        <h2 class="alice-font">Una torcia<br/>che si accende / spegne</h2>
+        <a class="code-link" href="https://codepen.io/juliendargelos/pen/AIdCg" target="_blank">Soluzione</a>
+      </section>
+      <section>
+        <h2 class="alice-font">Il gioco del tris</h2>
+        <a class="code-link" href="https://codepen.io/ziga-miklic/pen/Fagmh" target="_blank">Soluzione</a>
+      </section>
+      <section>
+        <h2 class="alice-font">Bonus Track</h2>
+        <p class="fragment">Come posso centrare un elemento all'interno di un altro elemento?</p>
+        <div class="code-buttons fragment">
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/o2faqwnu/" target="_blank">Coding</a>
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/o2faqwnu/8/" target="_blank">Soluzione 1</a>
+          <a class="code-link" href="https://jsfiddle.net/davidebrognoli/o2faqwnu/9/" target="_blank">Soluzione 2</a>
         </div>
+      </section>
+      <section>
+          <h2 class="alice-font">Grazie</h2>
+          <img class="plain small" src="lib/images/cappellaio.png">
+        </section>
     </div>
+  </div>
 
-    <script src="js/reveal.js"></script>
+  <script src="js/reveal.js"></script>
 
-    <script>
-        // More info about config & dependencies:
-        // - https://github.com/hakimel/reveal.js#configuration
-        // - https://github.com/hakimel/reveal.js#dependencies
-        Reveal.initialize({
-            dependencies: [{
-                src: 'plugin/markdown/marked.js'
-            }, {
-                src: 'plugin/markdown/markdown.js'
-            }, {
-                src: 'plugin/notes/notes.js',
-                async: true
-            }, {
-                src: 'plugin/highlight/highlight.js',
-                async: true
-            }]
-        });
-    </script>
+  <script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      dependencies: [{
+        src: 'plugin/markdown/marked.js'
+      }, {
+        src: 'plugin/markdown/markdown.js'
+      }, {
+        src: 'plugin/notes/notes.js',
+        async: true
+      }, {
+        src: 'plugin/highlight/highlight.js',
+        async: true
+      }]
+    });
+  </script>
 </body>
 
-</html>
+</html

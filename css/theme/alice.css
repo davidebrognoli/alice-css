@@ -1,0 +1,54 @@
+@import url(../../lib/font/alice-in-wonderland/stylesheet.css);
+.reveal .alice-font {
+  font-family: 'alice-in-wonderland', Arial, sans-serif;
+}
+
+.reveal .alice-img {
+  position: absolute;
+  top: 0;
+  right: -35px;
+}
+
+.reveal .alice-img--medium {
+  position: absolute;
+  top: 50px;
+  right: -100px;
+}
+
+.reveal img.small {
+  max-width: 40%;
+  max-height: 40%;
+}
+
+.reveal .code-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.reveal .code-link {
+  display: inline-block;
+  background-color: #01A0DE;
+  color: #FFF;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  margin: 0 10px;
+  border: 2px solid #01A0DE;
+}
+
+.reveal .code-link:hover {
+  background-color: #FFF;
+  color: #01A0DE;
+  border: 2px solid #01A0DE;
+}
+
+.reveal pre {
+  width: auto;
+  box-shadow: none;
+}
+
+.reveal blockquote {
+  padding: 50px;
+  width: auto;
+  font-size: 36px;
+  text-align: justify;
+}
